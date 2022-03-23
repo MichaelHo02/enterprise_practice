@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novell Services Login</title>
+</head>
+
+<!-- <style>
+    td, th {
+        border: 1px solid black;
+    }
+</style> -->
+
+<body>
+    <form action="#" method="post" enctype="application/x-www-form-urlencoded">
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="2">
+                        <h1>Novel Services Login</h1>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <label for="user_name">Username:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="user_name" id="user_name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="password">Password:</label>
+                    </td>
+                    <td>
+                        <input type="password" name="password" id="password">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="city">City of<br>Employment:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="city" id="city">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="server">Web server:</label>
+                    </td>
+                    <td>
+                        <select name="server" id="server">
+                            <option value="" selected>Choose a server</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">Please specify<br>your role:</label>
+                    </td>
+                    <td>
+                        <div>
+                            <input type="radio" name="role[]" id="admin_role" value="admin">
+                            <label for="admin_role">Admin</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="role[]" id="engineer_role" value="engineer">
+                            <label for="engineer_role">Engineer</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="role[]" id="manager_role" value="manager">
+                            <label for="manager_role">Manager</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="role[]" id="guest_role" value="guest">
+                            <label for="guest_role">Guest</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">Single Sign-on<br>to the following:</label>
+                    </td>
+                    <td>
+                        <div>
+                            <input type="checkbox" name="sign-on[]" id="mail_sign_on" value="mail">
+                            <label for="mail_sign_on">Mail</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="sign-on[]" id="payroll_sign_on" value="payroll">
+                            <label for="payroll_sign_on">Payroll</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="sign-on[]" id="self-service_sign_on" value="self-service">
+                            <label for="self-service_sign_on">Self-service</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="reset" value="Reset">
+                        <input type="submit" value="Send">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin convertion</title>
+</head>
+
+<body>
+    <h1>Bitcoin convertion</h1>
+
+    <label for="money">Amount of money</label>
+    <input type="text" id="money" name="money" placeholder="00.00" required>
+    <select name="unit" id="unit" required>
+        <option value="" selected disabled>Select a unit</option>
+        <option value="bitcoin">Bitcoin</option>
+        <option value="usd">USD</option>
+        <option value="euro">EURO</option>
+        <option value="pound">POUND</option>
+    </select>
+    <input type="submit" onclick="convert()"></input>
+
+    <p id="result"></p>
+</body>
+<script>
+    var convert = function () {
+        let result = document.querySelector('#result');
+        result.innerText = '';
+
+        let unit = document.querySelector('#unit').value;
+        if (unit === '') {
+            result.innerText = 'Please select a unit';
+            return;
+        }
+
+        let amount = parseInt(document.querySelector('#money').value);
+        if (isNaN(amount)) {
+            result.innerText = 'Please enter a valid amount';
+            return;
+        }
+        
+        fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
+            .then(obj => obj.json())
+            .then(json => {
+                const rateUsd = json.bpi.USD.rate_float;
+                const rateEur = json.bpi.EUR.rate_float;
+                const rateGBP = json.bpi.GBP.rate_float;
+
+                if (unit === 'bitcoin') {
+                    let usd = amount * rateUsd;
+                    let eur = amount * rateEur;
+                    let pound = amount * rateGBP;
+                    let s = `${usd} USD \n ${eur} EURO \n ${pound} POUND`;
+                    result.innerText = s;
+                    return;
+                }
+
+                let bitcoin = 0;                
+                if (unit === 'usd') {
+                    bitcoin = amount / rateUsd;
+                } else if (unit === 'euro') {
+                    bitcoin = amount / rateEur;
+                } else if (unit === 'pound') {
+                    bitcoin = amount / rateGBP;
+                }
+                let s = `${bitcoin} Bitcoin`;
+                result.innerText = s;
+            });
+    }
+</script>
+
+</html>
